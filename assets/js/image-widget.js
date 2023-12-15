@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function(){
     var baseurl = imageElement.getAttribute('data-baseurl');
 
     function changeImage(){
-        imageElement.src = baseurl + '/assets/images/' + images[imageIndex];
+        imageElement.src = '/assets/images/' + images[imageIndex];
         imageIndex = (imageIndex+1) % images.length;
     }
 
