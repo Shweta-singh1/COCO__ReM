@@ -1,1 +1,28 @@
-baseurl: "web_try"
+title: coco_web
+description: Your site description
+baseurl: "/web_try" # Adjust this based on your project structure
+url: "https://shweta-singh1.github.io/"
+
+# Build settings
+markdown: kramdown
+
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - _site
+  - .sass-cache
+  - .jekyll-cache
+  - .jekyll-metadata
+  - .DS_Store
+
+# Settings for kramdown, the Markdown parser
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
