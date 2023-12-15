@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
     var imageIndex = 0;
     var imageElement = document.getElementById('widget-image');
-
+    var baseurl = imageElement.getAttribute('data-baseurl');
     function changeImage(){
         imageElement.src = images[imageIndex];
         imageIndex = (imageIndex+1) % images.length;

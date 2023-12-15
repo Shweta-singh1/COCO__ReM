@@ -1,5 +1,13 @@
 <nav>
-    {% for item in site.data.navigation %}
-      <a href="{{ item.link }}" {% if page.url == item.link %}class="current"{% endif %}>{{ item.name }}</a>
-    {% endfor %}
+    <div class="nav-left">
+      <a href="{{ site.baseurl }}/" class="logo">{{ site.data.navigation[0].name }}</a>
+    </div>
+    <div class="nav-right">
+      {% for item in site.data.navigation %}
+        {% if forloop.index > 1 %}
+          <a href="{{ site.baseurl }}{{ item.link }}">{{ item.name }}</a>
+        {% endif %}
+      {% endfor %}
+    </div>
   </nav>
+  
