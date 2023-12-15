@@ -10,9 +10,9 @@ document.addEventListener('DOMContentLoaded', function(){
     var imageElement = document.getElementById('widget-image');
     var baseurl = imageElement.getAttribute('data-baseurl');
 
-    function changeImage(){
-        imageElement.src = '/assets/images/' + images[imageIndex];
-        imageIndex = (imageIndex+1) % images.length;
+    function changeImage() {
+        imageElement.src = baseurl + '/repository-name/assets/images/' + images[imageIndex];
+        imageIndex = (imageIndex + 1) % images.length;
     }
 
     changeImage();

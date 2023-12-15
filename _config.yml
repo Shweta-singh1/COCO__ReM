@@ -1,7 +1,7 @@
-title: coco_web
+title: COCO__ReM
 description: Your site description
-baseurl: "/web_try" # Adjust this based on your project structure
-url: "https://github.com/Shweta-singh1/web_try"
+baseurl: "/COCO__ReM" # Adjust this based on your project structure
+url: "https://github.com/Shweta-singh1//COCO__ReM"
 
 # Build settings
 markdown: kramdown
