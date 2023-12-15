@@ -1,4 +1,10 @@
 - name: COCO-ReM
   link: /
+- name: Explore
+  link: /explore.html
+- name: Download
+  link: /download.html
 - name: About
   link: /about.html
+- name: Paper
+  link: /paper.html
