@@ -8,10 +8,10 @@ document.addEventListener('DOMContentLoaded', function(){
 
     var imageIndex = 0;
     var imageElement = document.getElementById('widget-image');
-    var baseurl = imageElement.getAttribute('data-baseurl');
+    var baseurl = '{{ site.baseurl }}';
 
     function changeImage() {
-        imageElement.src = url + '/repository-name/assets/images/' + images[imageIndex];
+        imageElement.src = baseurl + '/assets/images/' + images[imageIndex];
         imageIndex = (imageIndex + 1) % images.length;
     }
 
