@@ -2,35 +2,16 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Home</title>
+    <title>{{ page.title }}</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/assets/css/styles.css">
+    <link rel="stylesheet" href="{{ "/assets/css/styles.css" | relative_url }}">
 
-    <link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" />
-    <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Home</title>
-<meta name="generator" content="Jekyll v3.9.3" />
-<meta property="og:title" content="Home" />
-<meta property="og:locale" content="en_US" />
-<link rel="canonical" href="http://localhost:4000/" />
-<meta property="og:url" content="http://localhost:4000/" />
-<meta property="og:type" content="website" />
-<meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Home" />
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebSite","headline":"Home","url":"http://localhost:4000/"}</script>
-<!-- End Jekyll SEO tag -->
-
+    {% feed_meta %}
+    {% seo %}
   </head>
   <body>
-    <nav>
-    
-      <a href="/" class="current">COCO-ReM</a>
-    
-      <a href="/about.html" >About</a>
-    
-  </nav>
+    {% include navigation.html %}
   <header>
     <div class="header-content">
         <h2>Benchmarking Object Detectors with COCO: Are We at a Crossroads?</h2>
@@ -78,7 +59,7 @@
         <p>&copy; 2023 Your Dataset Release Site. All rights reserved.</p>
     </div>
 </footer>
-<script src="/assets/js/image-widget.js"></script>  
+<script src="{{site.baseurl}}/assets/js/image-widget.js"></script>  
 
 </body>
 </html>
