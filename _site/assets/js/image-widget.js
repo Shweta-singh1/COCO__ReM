@@ -1,9 +1,9 @@
 document.addEventListener('DOMContentLoaded', function(){
     var images = [
-        '/assets/images/000000580410_couch (1).jpg',
-        '/assets/images/000000138954_apple.jpg',
-        '/assets/images/000000368982_scissors.jpg',
-        '/assets/images/000000002157_dining table.jpg',
+        '{{ site.baseurl }}/assets/images/000000580410_couch (1).jpg',
+        '{{ site.baseurl }}/assets/images/000000138954_apple.jpg',
+        '{{ site.baseurl }}/assets/images/000000368982_scissors.jpg',
+        '{{ site.baseurl }}/assets/images/000000002157_dining table.jpg',
     ];
 
     var imageIndex = 0;

@@ -6,7 +6,7 @@ body {
   box-sizing: border-box; }
 
 nav {
-  background: #26eb68da;
+  background: #11eb5ada;
   color: #ecf0f1;
   padding: 40px 20%;
   text-align: center;
@@ -36,7 +36,7 @@ nav {
 
 header {
   position: relative;
-  background: #26eb68da;
+  background: #11eb5ada;
   color: #faf9f8;
   padding: 70px 20% 60px;
   text-align: center; }
