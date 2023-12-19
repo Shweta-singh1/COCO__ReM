@@ -1,0 +1,80 @@
+/* _sass/download.scss */
+
+// Font sizes
+$font-size-small: 16px;
+$font-size-medium: 18px;
+$font-size-large: 26px;
+
+.download-section {
+  margin-top: 0;
+  // padding: 20px;
+  // border: 1px solid #ddd;
+  // border-radius: 5px;
+  // background-color: #fff;
+  // box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+  text-align: left;
+}
+
+.section-title {
+  color:$heading-color;
+  font-size: $font-size-large; /* Use the large font size variable */
+  margin-bottom: 10px;
+}
+
+/* Rectangle box styles */
+.download-box {
+  background-color: $nav-background-color; /* Adjusted color for the box */
+  padding: 10px;
+  width: 300px;
+  border-radius: $border-radius;
+  text-align: center;
+  display: inline-block; /* Ensures inline display for the box */
+}
+
+.download-link {
+  text-decoration: none;
+  color: $text-color;
+  font-weight: bold;
+  font-size: $font-size-medium; /* Use the medium font size variable */
+  /* Additional styling as needed */
+}
+
+.section-description {
+  color: #555;
+  font-size: $font-size-medium; /* Use the medium font size variable */
+  margin-bottom: 20px;
+}
+
+.subsection-title {
+  color: $heading-color;
+  font-size: $font-size-large; /* Use the large font size variable */
+  margin-bottom: 10px;
+}
+
+.overview-list {
+  list-style-type: disc;
+  margin-left: 20px;
+  font-size: $font-size-medium; /* Use the medium font size variable */
+}
+
+.dataset-stats p {
+  margin: 5px 0;
+  color:$heading-color;
+  font-size: $font-size-medium; /* Use the medium font size variable */
+}
+
+.annotation-description {
+  color: #333;
+  font-size: $font-size-medium; /* Use the medium font size variable */
+  margin-bottom: 10px;
+}
+
+.json-code {
+  background-color: #f8f8f8;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: $font-size-small; /* Use the small font size variable */
+  overflow-x: auto;
+}
