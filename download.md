@@ -33,31 +33,54 @@ title: Download
             <pre class="json-code">
 {
     "info": {
-        "version": "1.0",
-        "description": "COCO-ReM Dataset",
-        // Add more info as needed
+        description:"COCO 2017 Dataset"
+        url:"http://cocodataset.org"
+        version:"1.0"
+        year:2017
+        contributor:"COCO Consortium"
+        date_created:"2017/09/01"
     },
     "images": [
         {
-            "id": 1,
-            "file_name": "image1.jpg",
-            // Add more image details
+            license:4
+            file_name:"000000397133.jpg"
+            coco_url:"http://images.cocodataset.org/val2017/000000397133.jpg"
+            height:427
+            width:640
+            date_captured:"2013-11-14 17:02:52"
+            flickr_url:"http://farm7.staticflickr.com/6116/6255196340_da26cf2c9e_z.jpg"
+            id:397133
         },
-        // Add more images
     ],
     "annotations": [
         {
-            "id": 1,
-            "image_id": 1,
-            "category_id": 1,
-            "bbox": [x, y, width, height],
-            "area": area,
-            "iscrowd": 0,
-            // Add more annotation details
-        },
-        // Add more annotations
+            [
+  {
+    "segmentation": {
+      "size": [640, 529],
+      "counts": [303120, 7, 631, 9, 630, 11, 628, 13, 627, 13, 11, 2, 614, 13, 10, 4, 613, 14, 8, 5, 613, 16, 3, 7, 614, 26, 615, 24, 616, 23, 618, 20, 620, 18, 623, 16, 625, 15, 626, 14, 627, 13, 627, 14, 626, 15, 625, 18, 622, 21, 619, 22, 618, 22, 617, 15, 3, 4, 618, 13, 627, 13, 627, 12, 628, 12, 8, 1, 618, 12, 7, 4, 616, 14, 5, 5, 614, 26, 613, 27, 612, 27, 613, 26, 614, 27, 614, 26, 614, 27, 614, 13, 7, 5, 615, 7, 635, 4, 10477]
+          },
+    "area": 715,
+    "iscrowd": 0,
+    "image_id": 289343,
+    "bbox": [
+      473,
+      395,
+      40,
+      29
     ],
-    // Add more sections if needed
+    "category_id": 18,
+    "id": 1768,
+    "iou_with_orig": 0.876
+  }
+]
+        },
+    ],
+     "categories": [
+      {
+        "id": 18,
+        "name": "Category Name",
+        "supercategory": "Super
 }
             </pre>
         </div>
