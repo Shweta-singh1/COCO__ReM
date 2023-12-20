@@ -135,13 +135,14 @@ main {
 #image-widget {
     text-align: center;
     padding: 40px 5%; // Adjusted padding
-    margin-top: 10px;
+    margin-top: 0px;
     background-color: #fff;
     border-radius: $border-radius;
     box-shadow: $box-shadow;
 }
 
 #widget-image {
+    margin-top: 0px;
     max-width: 100%;
     height: auto;
     width: 100%; // Adjusted width
@@ -149,6 +150,7 @@ main {
 
 #image-widget h2 {
     font-size: 2em;
+    margin-top: 0px;
     margin-bottom: 30px;
     color: $heading-color;
 }
