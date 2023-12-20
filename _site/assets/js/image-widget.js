@@ -18,8 +18,5 @@ document.addEventListener('DOMContentLoaded', function(){
 
     setInterval(changeImage,2000);
     // Add a class to the widget container for styling
-    if (widgetContainer) {
-        widgetContainer.classList.add('image-widget');
-    }
 
 });

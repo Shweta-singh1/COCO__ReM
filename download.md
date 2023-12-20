@@ -5,7 +5,7 @@ title: Download
 <main>
 
     <div class="image-section">
-            <img src="{{ site.baseurl }}/assets/images/bg_img/bg4.jpg" alt="Team Member 1">
+            <img src="{{ site.baseurl }}/assets/images/bg_img/bg4.jpg" alt="bg_image">
         </div>
     <div class="download-section">
         

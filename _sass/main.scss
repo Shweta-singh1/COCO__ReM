@@ -1,5 +1,4 @@
 // Variables
-
 $font-size-base: 16px;
 $font-size-large: 18px;
 $font-size-extra-large: 24px;
@@ -9,18 +8,20 @@ $heading-line-height: 1.2;
 // Colors
 $background-color: #f7f7f7;
 $text-color: #faf9f8;
-$heading-color:  #00e676;
+$heading-color: #00e676;
 $link-color: #3498db;
 $link-hover-color: #fdfdfd;
-$nav-header-footer-heading:#08cc6d ;
-$footer-background-color:#227ea8;
+$nav-header-footer-heading: #08cc6d;
+$footer-background-color: #227ea8;
 $footer-text-color: #ecf0f1;
 $nav-text-color: #ecf0f1;
 $anchor-underline-color: #f7f7f7;
+
 // Spacing
 $padding-base: 5px;
 $margin-base: 5px;
 $font-family: "Open Sans", serif;
+
 // Border
 $border-radius: 10px;
 $border-width: 1px;
@@ -42,29 +43,30 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    // background-image: url('/assets/images/background-pattern.png');
 }
 
 // Navigation
 nav {
     font-family: $font-family;
     background: $nav-header-footer-heading;
-    padding: 20px 5%;
+    padding: 20px 0%; // Adjusted padding
     text-align: center;
     display: flex;
     justify-content: space-between;
     position: fixed;
-    width: 90%;
+    width: 99.1%; // Adjusted width
     top: 0;
     z-index: 1000;
-    // box-shadow:$box-shadow;
+    // box-shadow: $box-shadow;
 
     .nav-left {
+        padding-left: 5%;
         display: flex;
         align-items: center;
     }
 
     .logo {
+        
         color: $nav-text-color;
         text-decoration: none;
         font-weight: bold;
@@ -74,11 +76,12 @@ nav {
         &:hover {
             border-bottom: 1px solid $link-hover-color;
         }
-    
     }
 
     .nav-right {
+        padding-right: 5%;
         display: flex;
+        align-items: center;
 
         a {
             color: $nav-text-color;
@@ -86,7 +89,6 @@ nav {
             margin: 0 20px;
             font-weight: bold;
             font-size: 1.2em;
-            letter-spacing: 1px;
 
             &:hover {
                 border-bottom: 1px solid $link-hover-color;
@@ -97,13 +99,13 @@ nav {
 
 // Header
 header {
-    
     position: relative;
     background: $nav-header-footer-heading;
     color: $text-color;
-    padding: 70px 10% 60px;
+    padding: 70px 5% 60px; // Adjusted padding
     text-align: center;
     margin-top: 30px;
+    width: 100%;
 
     .header-content {
         font-family: $font-family;
@@ -111,44 +113,44 @@ header {
         margin: 0 auto;
     }
 
-    h1 {
-        margin: 0;
-        font-size: 3em;
-        letter-spacing: 3px;
-        line-height: $heading-line-height;
-    }
-    h2 {
+    h1, h2 {
         margin: 0;
         font-size: 2em;
         letter-spacing: 1px;
         line-height: $heading-line-height;
+        padding-right: 10%;
     }
 
-    // a.cta-button {
-    //     display: inline-block;
-    //     padding: 15px 30px;
-    //     margin-top: 30px;
-    //     font-size: 1.2em;
-    //     font-weight: bold;
-    //     text-decoration: none;
-    //     color: $text-color;
-    //     background-color: $background-color;
-    //     border-radius: $border-radius;
-    //     transition: background-color 0.3s ease-in-out;
-
-    //     &:hover {
-    //         background-color: darken($background-color, 10%);
-    //         text-decoration: underline;
-    //     }
-    // }
-   
+    h1 {
+        font-size: 3em;
+    }
 }
 
 // Main
 main {
     text-align: center;
-    padding: 40px 10%;
+    padding: 40px 5%; // Adjusted padding
+}
 
+#image-widget {
+    text-align: center;
+    padding: 40px 5%; // Adjusted padding
+    margin-top: 10px;
+    background-color: #fff;
+    border-radius: $border-radius;
+    box-shadow: $box-shadow;
+}
+
+#widget-image {
+    max-width: 100%;
+    height: auto;
+    width: 100%; // Adjusted width
+}
+
+#image-widget h2 {
+    font-size: 2em;
+    margin-bottom: 30px;
+    color: $heading-color;
 }
 
 .team-section {
@@ -177,26 +179,26 @@ main {
     height: 150px;
     border-radius: 50%;
 }
-// Additional Content
+
 .additional-content {
     font-family: $font-family;
     background-color: #fff;
     color: $text-color;
-    padding: 60px 10%;
+    padding: 30px 5%; // Adjusted padding
     border-radius: $border-radius;
     box-shadow: $box-shadow;
-    margin-top: 60px;
+    margin-top: 40px;
 
     h2 {
         font-size: 2em;
-        margin-bottom: 30px;
+        margin-bottom: 10px;
         color: $heading-color;
     }
 
     p {
         font-size: 1.5em;
         line-height: 1.6;
-        margin-bottom: 20px;
+        margin-bottom: 10px;
         color: #0a0a0a;
     }
 }
@@ -206,7 +208,7 @@ main {
     background: $nav-header-footer-heading;
     color: $footer-text-color;
     text-align: center;
-    padding: 40px 10%;
+    padding: 30px 5%; // Adjusted padding
     border-top: $border-width solid $border-color;
 
     p {
@@ -214,17 +216,18 @@ main {
         font-size: 1.2em;
     }
 }
+
 html, body {
     height: 100%;
     margin: 0;
     padding: 0;
+    overflow-x: hidden; // Prevents horizontal scrolling
 }
 
 body {
     display: flex;
     flex-direction: column;
 }
-
 
 main {
     flex: 1;
