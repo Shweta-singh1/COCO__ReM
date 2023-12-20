@@ -5,6 +5,18 @@ $font-size-small: 16px;
 $font-size-medium: 18px;
 $font-size-large: 26px;
 
+.image-section {
+  display: flex;
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Center content vertically */
+  margin-bottom: 20px; /* Adjust as needed */
+}
+
+.image-section img {
+  max-width: 100%; /* Ensure the image doesn't exceed its container width */
+  height: auto;
+  border-radius: $border-radius; /* Apply border-radius to the image */
+}
 .download-section {
   margin-top: 0;
   // padding: 20px;
@@ -17,17 +29,18 @@ $font-size-large: 26px;
 }
 
 .section-title {
-  color:$heading-color;
+  color:$nav-header-footer-heading;
   font-size: $font-size-large; /* Use the large font size variable */
   margin-bottom: 10px;
 }
 
 /* Rectangle box styles */
 .download-box {
-  background-color: $nav-background-color; /* Adjusted color for the box */
+  background-color: $nav-header-footer-heading; /* Adjusted color for the box */
   padding: 10px;
   width: 300px;
   border-radius: $border-radius;
+  border: 1px dashed #9c9898;
   text-align: center;
   display: inline-block; /* Ensures inline display for the box */
 }
@@ -41,13 +54,13 @@ $font-size-large: 26px;
 }
 
 .section-description {
-  color: #555;
+  color: #0a0000;
   font-size: $font-size-medium; /* Use the medium font size variable */
   margin-bottom: 20px;
 }
 
 .subsection-title {
-  color: $heading-color;
+  color:$nav-header-footer-heading;
   font-size: $font-size-large; /* Use the large font size variable */
   margin-bottom: 10px;
 }
@@ -60,7 +73,7 @@ $font-size-large: 26px;
 
 .dataset-stats p {
   margin: 5px 0;
-  color:$heading-color;
+  color:$nav-header-footer-heading;
   font-size: $font-size-medium; /* Use the medium font size variable */
 }
 
@@ -71,9 +84,9 @@ $font-size-large: 26px;
 }
 
 .json-code {
-  background-color: #f8f8f8;
-  border: 1px solid #ddd;
-  border-radius: 5px;
+  background-color: #c5f7d3;
+  border: 1px solid #9c9898;
+  border-radius: 10px;
   padding: 10px;
   font-size: $font-size-small; /* Use the small font size variable */
   overflow-x: auto;

@@ -1,9 +1,9 @@
 document.addEventListener('DOMContentLoaded', function(){
     var images = [
-        'assets/images/000000580410_couch (1).jpg',
-        'assets/images/000000138954_apple.jpg',
-        'assets/images/000000368982_scissors.jpg',
-        'assets/images/000000002157_dining table.jpg',
+        'assets/images/wid_img/img22.jpg',
+        'assets/images/wid_img/img11.jpg',
+        // 'assets/images/000000368982_scissors.jpg',
+        // 'assets/images/000000002157_dining table.jpg',
     ];
 
     var imageIndex = 0;
@@ -17,5 +17,9 @@ document.addEventListener('DOMContentLoaded', function(){
     changeImage();
 
     setInterval(changeImage,2000);
+    // Add a class to the widget container for styling
+    if (widgetContainer) {
+        widgetContainer.classList.add('image-widget');
+    }
 
 });

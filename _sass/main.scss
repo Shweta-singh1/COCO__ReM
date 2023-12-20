@@ -7,25 +7,22 @@ $line-height: 1.5;
 $heading-line-height: 1.2;
 
 // Colors
-$primary-color: #8bade4;
-$secondary-color: #e07510;
 $background-color: #f7f7f7;
 $text-color: #faf9f8;
-$heading-color:  #e07510;
+$heading-color:  #00e676;
 $link-color: #3498db;
-$link-hover-color: #e07510;
-$footer-background-color: #228B22;
+$link-hover-color: #fdfdfd;
+$nav-header-footer-heading:#08cc6d ;
+$footer-background-color:#227ea8;
 $footer-text-color: #ecf0f1;
-$nav-background-color:#228B22;
-$header-background-color:#228B22;
 $nav-text-color: #ecf0f1;
 $anchor-underline-color: #f7f7f7;
 // Spacing
-$padding-base: 10px;
-$margin-base: 10px;
-$font-family: 'Inconsolata', monospace;
+$padding-base: 5px;
+$margin-base: 5px;
+$font-family: "Open Sans", serif;
 // Border
-$border-radius: 5px;
+$border-radius: 10px;
 $border-width: 1px;
 $border-color: #ddd;
 
@@ -50,13 +47,17 @@ body {
 
 // Navigation
 nav {
-    font-family:"Open Sans";
-    background: $nav-background-color;
-    color: $nav-text-color;
-    padding: 20px 20%;
+    font-family: $font-family;
+    background: $nav-header-footer-heading;
+    padding: 20px 5%;
     text-align: center;
     display: flex;
     justify-content: space-between;
+    position: fixed;
+    width: 90%;
+    top: 0;
+    z-index: 1000;
+    // box-shadow:$box-shadow;
 
     .nav-left {
         display: flex;
@@ -69,24 +70,27 @@ nav {
         font-weight: bold;
         font-size: 1.5em;
         letter-spacing: 1px;
+
+        &:hover {
+            border-bottom: 1px solid $link-hover-color;
+        }
+    
     }
 
     .nav-right {
         display: flex;
-    }
 
-    a {
-        color: $nav-text-color;
-        text-decoration: none;
-        margin: 0 20px;
-        font-weight: bold;
-        font-size: 1.2em;
-        letter-spacing: 1px;
-        // transition: color 0.3s ease-in-out, border-bottom 0.3s ease-in-out;
-        // position: relative; /* Added this line */
-        &:hover {
-            color: $link-hover-color;
-            border-bottom: 1px solid $link-hover-color;
+        a {
+            color: $nav-text-color;
+            text-decoration: none;
+            margin: 0 20px;
+            font-weight: bold;
+            font-size: 1.2em;
+            letter-spacing: 1px;
+
+            &:hover {
+                border-bottom: 1px solid $link-hover-color;
+            }
         }
     }
 }
@@ -95,13 +99,14 @@ nav {
 header {
     
     position: relative;
-    background: $header-background-color;
+    background: $nav-header-footer-heading;
     color: $text-color;
-    padding: 70px 20% 60px;
+    padding: 70px 10% 60px;
     text-align: center;
+    margin-top: 30px;
 
     .header-content {
-        font-family:"Open Sans";
+        font-family: $font-family;
         max-width: 100%;
         margin: 0 auto;
     }
@@ -119,28 +124,23 @@ header {
         line-height: $heading-line-height;
     }
 
-    p {
-        font-size: 2em;
-        margin-top: 20px;
-    }
+    // a.cta-button {
+    //     display: inline-block;
+    //     padding: 15px 30px;
+    //     margin-top: 30px;
+    //     font-size: 1.2em;
+    //     font-weight: bold;
+    //     text-decoration: none;
+    //     color: $text-color;
+    //     background-color: $background-color;
+    //     border-radius: $border-radius;
+    //     transition: background-color 0.3s ease-in-out;
 
-    a.cta-button {
-        display: inline-block;
-        padding: 15px 30px;
-        margin-top: 30px;
-        font-size: 1.2em;
-        font-weight: bold;
-        text-decoration: none;
-        color: $text-color;
-        background-color: $secondary-color;
-        border-radius: $border-radius;
-        transition: background-color 0.3s ease-in-out;
-
-        &:hover {
-            background-color: darken($secondary-color, 10%);
-            text-decoration: underline;
-        }
-    }
+    //     &:hover {
+    //         background-color: darken($background-color, 10%);
+    //         text-decoration: underline;
+    //     }
+    // }
    
 }
 
@@ -203,7 +203,7 @@ main {
 
 // Footer
 .footer-content {
-    background: $footer-background-color;
+    background: $nav-header-footer-heading;
     color: $footer-text-color;
     text-align: center;
     padding: 40px 10%;
