@@ -8,19 +8,28 @@ $heading-line-height: 1.2;
 // Colors
 $background-color: #f7f7f7;
 $text-color: #faf9f8;
-$heading-color: #00e676;
+$heading-color: #00CC66;
 $link-color: #3498db;
 $link-hover-color: #fdfdfd;
-$nav-header-footer-heading: #08cc6d;
+$nav-header-footer-heading: #00CC66;
 $footer-background-color: #227ea8;
 $footer-text-color: #ecf0f1;
 $nav-text-color: #ecf0f1;
 $anchor-underline-color: #f7f7f7;
 
+@font-face {
+    font-family: 'Monaco';
+    src: url('fonts/monaco-cufonfonts/Monaco.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
 // Spacing
 $padding-base: 5px;
 $margin-base: 5px;
-$font-family: "Open Sans", serif;
+$font-family: "Open Sans";
+// $font-family: 'Monaco';
+
+
 
 // Border
 $border-radius: 10px;
@@ -43,30 +52,31 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    
 }
 
 // Navigation
 nav {
     font-family: $font-family;
     background: $nav-header-footer-heading;
-    padding: 20px 0%; // Adjusted padding
-    text-align: center;
+    padding: 1rem 0 10px 0;
+    top: 0;
+    left: 0;
+    right: 0;
     display: flex;
     justify-content: space-between;
     position: fixed;
-    width: 99.1%; // Adjusted width
     top: 0;
-    z-index: 1000;
-    // box-shadow: $box-shadow;
+    align-content: center;
+    z-index: 1030;
 
     .nav-left {
-        padding-left: 5%;
         display: flex;
         align-items: center;
+        margin-left: 5%;
     }
 
     .logo {
-        
         color: $nav-text-color;
         text-decoration: none;
         font-weight: bold;
@@ -79,9 +89,9 @@ nav {
     }
 
     .nav-right {
-        padding-right: 5%;
         display: flex;
         align-items: center;
+        margin-right: 5%;
 
         a {
             color: $nav-text-color;
@@ -102,11 +112,11 @@ header {
     position: relative;
     background: $nav-header-footer-heading;
     color: $text-color;
-    padding: 70px 5% 60px; // Adjusted padding
+    padding: 70px 0 60px; // Adjusted padding
     text-align: center;
-    margin-top: 30px;
+    margin-top: 15px;
     width: 100%;
-
+    z-index: 0;
     .header-content {
         font-family: $font-family;
         max-width: 100%;
@@ -118,7 +128,7 @@ header {
         font-size: 2em;
         letter-spacing: 1px;
         line-height: $heading-line-height;
-        padding-right: 10%;
+        // padding-right: 10%;
     }
 
     h1 {
@@ -223,7 +233,7 @@ html, body {
     height: 100%;
     margin: 0;
     padding: 0;
-    overflow-x: hidden; // Prevents horizontal scrolling
+    // overflow-x: hidden; // Prevents horizontal scrolling
 }
 
 body {

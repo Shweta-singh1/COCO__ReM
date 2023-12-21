@@ -1,25 +1,32 @@
+@font-face {
+  font-family: 'Monaco';
+  src: url("fonts/monaco-cufonfonts/Monaco.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
 body {
-  font-family: "Open Sans", serif;
+  font-family: "Open Sans";
   background-color: #f7f7f7;
   margin: 0;
   padding: 0;
   box-sizing: border-box; }
 
 nav {
-  font-family: "Open Sans", serif;
-  background: #08cc6d;
-  padding: 20px 0%;
-  text-align: center;
+  font-family: "Open Sans";
+  background: #00CC66;
+  padding: 1rem 0 10px 0;
+  top: 0;
+  left: 0;
+  right: 0;
   display: flex;
   justify-content: space-between;
   position: fixed;
-  width: 99.1%;
   top: 0;
-  z-index: 1000; }
+  align-content: center;
+  z-index: 1030; }
   nav .nav-left {
-    padding-left: 5%;
     display: flex;
-    align-items: center; }
+    align-items: center;
+    margin-left: 5%; }
   nav .logo {
     color: #ecf0f1;
     text-decoration: none;
@@ -29,9 +36,9 @@ nav {
     nav .logo:hover {
       border-bottom: 1px solid #fdfdfd; }
   nav .nav-right {
-    padding-right: 5%;
     display: flex;
-    align-items: center; }
+    align-items: center;
+    margin-right: 5%; }
     nav .nav-right a {
       color: #ecf0f1;
       text-decoration: none;
@@ -43,22 +50,22 @@ nav {
 
 header {
   position: relative;
-  background: #08cc6d;
+  background: #00CC66;
   color: #faf9f8;
-  padding: 70px 5% 60px;
+  padding: 70px 0 60px;
   text-align: center;
-  margin-top: 30px;
-  width: 100%; }
+  margin-top: 15px;
+  width: 100%;
+  z-index: 0; }
   header .header-content {
-    font-family: "Open Sans", serif;
+    font-family: "Open Sans";
     max-width: 100%;
     margin: 0 auto; }
   header h1, header h2 {
     margin: 0;
     font-size: 2em;
     letter-spacing: 1px;
-    line-height: 1.2;
-    padding-right: 10%; }
+    line-height: 1.2; }
   header h1 {
     font-size: 3em; }
 
@@ -84,7 +91,7 @@ main {
   font-size: 2em;
   margin-top: 0px;
   margin-bottom: 30px;
-  color: #00e676; }
+  color: #00CC66; }
 
 .team-section {
   text-align: center;
@@ -110,7 +117,7 @@ main {
   border-radius: 50%; }
 
 .additional-content {
-  font-family: "Open Sans", serif;
+  font-family: "Open Sans";
   background-color: #fff;
   color: #faf9f8;
   padding: 30px 5%;
@@ -120,7 +127,7 @@ main {
   .additional-content h2 {
     font-size: 2em;
     margin-bottom: 10px;
-    color: #00e676; }
+    color: #00CC66; }
   .additional-content p {
     font-size: 1.5em;
     line-height: 1.6;
@@ -128,7 +135,7 @@ main {
     color: #0a0a0a; }
 
 .footer-content {
-  background: #08cc6d;
+  background: #00CC66;
   color: #ecf0f1;
   text-align: center;
   padding: 30px 5%;
@@ -140,8 +147,7 @@ main {
 html, body {
   height: 100%;
   margin: 0;
-  padding: 0;
-  overflow-x: hidden; }
+  padding: 0; }
 
 body {
   display: flex;
@@ -175,14 +181,14 @@ footer {
   text-align: left; }
 
 .section-title {
-  color: #08cc6d;
+  color: #00CC66;
   font-size: 26px;
   /* Use the large font size variable */
   margin-bottom: 10px; }
 
 /* Rectangle box styles */
 .download-box {
-  background-color: #08cc6d;
+  background-color: #00CC66;
   /* Adjusted color for the box */
   padding: 10px;
   width: 300px;
@@ -207,7 +213,7 @@ footer {
   margin-bottom: 20px; }
 
 .subsection-title {
-  color: #08cc6d;
+  color: #00CC66;
   font-size: 26px;
   /* Use the large font size variable */
   margin-bottom: 10px; }
@@ -220,7 +226,7 @@ footer {
 
 .dataset-stats p {
   margin: 5px 0;
-  color: #08cc6d;
+  color: #00CC66;
   font-size: 18px;
   /* Use the medium font size variable */ }
 
