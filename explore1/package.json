@@ -18,7 +18,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "purge": "rm -rf ../assets/js/explore-app1/static && cp -fR ./build/* ../assets/js/explore-app1",
+    "purge": "rm -rf ../assets/js/explore-app1 && mkdir ../assets/js/explore-app1 && cp -fR ./build/* ../assets/js/explore-app1",
     "frontmatter": "echo '---\ntitle: Explore Karo\nlayout: default\n---\n' | cat - ../assets/js/explore-app1/index.html > temp && mv temp ../assets/js/explore-app1/index.html",
     "deploy": "npm run purge && npm run frontmatter"
   },
