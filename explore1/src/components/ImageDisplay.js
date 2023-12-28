@@ -113,7 +113,7 @@ const ImageDisplay = ({ imageId, annotations }) => {
       {showImage && (
         <img
           id="displayed-image"
-          src={`assets/images/val2017/${imageId}.jpg`}
+          src={`http://images.cocodataset.org/val2017/${imageId}.jpg`}
           alt={`Image ${imageId}`}
         />
       )}

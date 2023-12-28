@@ -1,6 +1,6 @@
 ---
 layout: explore
-title: About
+title: Explore
 ---
 # Explore page
 
