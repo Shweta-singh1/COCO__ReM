@@ -1,26 +1,33 @@
-// import React from 'react';
-
-// const ImageDisplay = ({ imageId }) => {
-//   const imagePath = `/images/${imageId}.jpg`; // Assuming images are in the 'public' folder or served statically
-//   return (
-//     <div>
-//       <h2>Image Display</h2>
-//       <img src={imagePath} alt={`Image ${imageId}`} />
-//     </div>
-//   );
-// };
-
-// export default ImageDisplay;
-// ImageDisplay.js
-
-// ImageDisplay.js
-
-// ImageDisplay.js
-
 import React, { useState, useEffect } from 'react';
 
 const ImageDisplay = ({ imageId, annotations }) => {
   const [showImage, setShowImage] = useState(false);
+
+  const parseRLE = (rleData) => {
+    // Extract width and height from size property of RLE data
+    const width = rleData.size[1];
+    const height = rleData.size[0];
+
+    // Parse RLE data and initialize mask array
+    const rleCounts = rleData.counts;
+    const newMaskArray = new Array(width * height).fill(0);
+
+    // Iterate over RLE data and set values in the mask array
+    let currentIndex = 0;
+    for (let i = 0; i < rleCounts.length; i += 2) {
+      const runLength = rleCounts[i];
+      const runValue = rleCounts[i + 1];
+
+      // Set values in the mask array based on the run length and value
+      for (let j = 0; j < runLength; j++) {
+        newMaskArray[currentIndex++] = runValue;
+      }
+    }
+    console.log(newMaskArray);
+    // Return the generated mask array
+    return newMaskArray;
+  };
+  
 
   const renderMasks = () => {
     const imageElement = document.getElementById('displayed-image');
@@ -35,12 +42,14 @@ const ImageDisplay = ({ imageId, annotations }) => {
 
       // Draw masks on the canvas for annotations with the same image_id
       const annotationList = annotations.annotations; // Adjust based on your actual key
-      const filteredAnnotations = annotationList.filter(annotation => annotation.image_id === imageId);
+      const filteredAnnotations = annotationList.filter((annotation) => {
+        return annotation.image_id === parseInt(imageId, 10);
+      });
 
-      filteredAnnotations.forEach(annotation => {
+      filteredAnnotations.forEach((annotation) => {
         const rleData = annotation.segmentation;
-        const mask = parseRLE(rleData);
-        drawMask(ctx, mask, annotation.color);
+        const maskArray = parseRLE(rleData);
+        // drawMask(ctx, maskArray, annotation.color);
       });
 
       // Overlay the canvas on the image
@@ -53,53 +62,6 @@ const ImageDisplay = ({ imageId, annotations }) => {
     }
   };
 
-  const parseRLE = (rleData) => {
-    const { size, counts } = rleData;
-    const [width, height] = size;
-  
-    const mask = [];
-    let currentCount = 0;
-    let currentX = 0;
-    let currentY = 0;
-  
-    for (let i = 0; i < counts.length; i += 2) {
-      const count = counts[i];
-      const value = counts[i + 1];
-  
-      for (let j = 0; j < count; j++) {
-        mask.push({ x: currentX, y: currentY });
-  
-        currentX++;
-        if (currentX === width) {
-          currentX = 0;
-          currentY++;
-        }
-      }
-  
-      // Skip pixels based on the value
-      currentX += value;
-      if (currentX >= width) {
-        currentX = 0;
-        currentY++;
-      }
-    }
-  
-    return mask;
-  };
-  
-  const drawMask = (ctx, mask, color) => {
-    ctx.fillStyle = color;
-    ctx.beginPath();
-  
-    mask.forEach(point => {
-      ctx.lineTo(point.x, point.y);
-    });
-  
-    ctx.closePath();
-    ctx.fill();
-  };
-  
-  
 
   const handleButtonClick = () => {
     renderMasks();
@@ -122,4 +84,3 @@ const ImageDisplay = ({ imageId, annotations }) => {
 };
 
 export default ImageDisplay;
-
