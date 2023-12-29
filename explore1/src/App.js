@@ -59,7 +59,6 @@ const App = () => {
 
   return (
     <div className='App'>
-      <h1>Explore!</h1>
       <ImageInput
         onImageIdChange={handleImageIdChange}
         onSubmit={handleImageDisplay}

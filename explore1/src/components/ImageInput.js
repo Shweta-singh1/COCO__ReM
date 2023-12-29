@@ -1,13 +1,17 @@
 import React, { useState } from 'react';
 
-const ImageInput = ({ onImageIdChange, onSubmit }) => {
+  const ImageInput = ({ onImageIdChange, onSubmit }) => {
   const [imageId, setImageId] = useState('');
 
   const handleChange = (event) => {
-    setImageId(event.target.value);
-    onImageIdChange(event.target.value);
+    const enteredValue = event.target.value;
+    
+    // Remove leading zeros and update the state
+    setImageId(enteredValue.replace(/^0+/, ''));
+    
+    // Pass the padded image ID to the parent component
+    onImageIdChange(enteredValue.padStart(12, '0'));
   };
-
   const handleSubmit = (event) => {
     event.preventDefault();
     onSubmit(imageId);
