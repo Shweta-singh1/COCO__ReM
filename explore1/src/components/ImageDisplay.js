@@ -1,33 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import RLEtoMask from './RLEtoMask';
 
 const ImageDisplay = ({ imageId, annotations }) => {
   const [showImage, setShowImage] = useState(false);
-
-  const parseRLE = (rleData) => {
-    // Extract width and height from size property of RLE data
-    const width = rleData.size[1];
-    const height = rleData.size[0];
-
-    // Parse RLE data and initialize mask array
-    const rleCounts = rleData.counts;
-    const newMaskArray = new Array(width * height).fill(0);
-
-    // Iterate over RLE data and set values in the mask array
-    let currentIndex = 0;
-    for (let i = 0; i < rleCounts.length; i += 2) {
-      const runLength = rleCounts[i];
-      const runValue = rleCounts[i + 1];
-
-      // Set values in the mask array based on the run length and value
-      for (let j = 0; j < runLength; j++) {
-        newMaskArray[currentIndex++] = runValue;
-      }
-    }
-    console.log(newMaskArray);
-    // Return the generated mask array
-    return newMaskArray;
-  };
-  
 
   const renderMasks = () => {
     const imageElement = document.getElementById('displayed-image');
@@ -48,10 +23,10 @@ const ImageDisplay = ({ imageId, annotations }) => {
 
       filteredAnnotations.forEach((annotation) => {
         const rleData = annotation.segmentation;
-        const maskArray = parseRLE(rleData);
+        const mask = <RLEtoMask rleData={rleData}/>
         // drawMask(ctx, maskArray, annotation.color);
       });
-
+//modify below
       // Overlay the canvas on the image
       const overlayImage = new Image();
       overlayImage.src = canvas.toDataURL();
