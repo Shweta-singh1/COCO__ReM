@@ -1,36 +1,3 @@
-// import React, { useState } from 'react';
-// import ImageInput from './components/ImageInput';
-// import ImageDisplay from './components/ImageDisplay';
-// import './App.css'; 
-
-// const App = () => {
-//   const [selectedImageId, setSelectedImageId] = useState('');
-
-//   const handleImageIdChange = (imageId) => {
-//     setSelectedImageId(imageId);
-//   };
-
-//   const handleImageDisplay = (imageId) => {
-//     // You can perform additional actions when the image is displayed
-//     console.log(`Displaying image with ID: ${imageId}`);
-//   };
-
-//   return (
-    
-//     <div className='App'>
-//       <h1>My Image App</h1>
-//       <ImageInput
-//         onImageIdChange={handleImageIdChange}
-//         onSubmit={handleImageDisplay}
-//       />
-//       {selectedImageId && <ImageDisplay imageId={selectedImageId} />}
-//     </div>
-//   );
-// };
-
-// export default App;
-// App.js
-
 import React, { useState, useEffect } from 'react';
 import ImageInput from './components/ImageInput';
 import ImageDisplay from './components/ImageDisplay';
@@ -40,6 +7,7 @@ import './App.css';
 const App = () => {
   const [selectedImageId, setSelectedImageId] = useState('');
   const [annotations, setAnnotations] = useState([]);
+  const [showImage, setShowImage] = useState(false);
 
   useEffect(() => {
     // Fetch annotations when the component mounts
@@ -48,22 +16,18 @@ const App = () => {
       .catch(error => console.error('Error loading annotations:', error));
   }, []);
 
-  const handleImageIdChange = (imageId) => {
+  const handleImageChangeAndDisplay = (imageId) => {
     setSelectedImageId(imageId);
-  };
-
-  const handleImageDisplay = (imageId) => {
-    // You can perform additional actions when the image is displayed
-    console.log(`Displaying image with ID: ${imageId}`);
+    setShowImage(true);
   };
 
   return (
     <div className='App'>
+      <h1>Explore!</h1>
       <ImageInput
-        onImageIdChange={handleImageIdChange}
-        onSubmit={handleImageDisplay}
+        onImageIdChange={handleImageChangeAndDisplay}
       />
-      {selectedImageId && (
+      {showImage && selectedImageId && (
         <ImageDisplay
           imageId={selectedImageId}
           annotations={annotations}

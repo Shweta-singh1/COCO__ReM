@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-  const ImageInput = ({ onImageIdChange, onSubmit }) => {
+const ImageInput = ({ onImageIdChange}) => {
   const [imageId, setImageId] = useState('');
 
   const handleChange = (event) => {
@@ -8,13 +8,12 @@ import React, { useState } from 'react';
     
     // Remove leading zeros and update the state
     setImageId(enteredValue.replace(/^0+/, ''));
-    
-    // Pass the padded image ID to the parent component
-    onImageIdChange(enteredValue.padStart(12, '0'));
+  
   };
   const handleSubmit = (event) => {
     event.preventDefault();
-    onSubmit(imageId);
+    const paddedValue = imageId.padStart(12, '0');
+    onImageIdChange(paddedValue);
   };
 
   return (
@@ -27,7 +26,7 @@ import React, { useState } from 'react';
           value={imageId}
           onChange={handleChange}
         />
-        {/* <button type="submit">Display Image</button> */}
+        <button type='submit'>Submit</button>
       </form>
     </div>
   );

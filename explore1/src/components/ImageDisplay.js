@@ -4,49 +4,52 @@ import RLEtoMask from './RLEtoMask';
 const ImageDisplay = ({ imageId, annotations }) => {
   const [showImage, setShowImage] = useState(false);
 
+  useEffect(() => {
+    renderMasks();
+    setShowImage(true);
+  }, [imageId, annotations]);
+
   const renderMasks = () => {
+    console.log('Hi');
     const imageElement = document.getElementById('displayed-image');
 
     if (imageElement) {
-      const canvas = document.createElement('canvas');
-      const ctx = canvas.getContext('2d');
-
-      // Set canvas dimensions to match the image
-      canvas.width = imageElement.width;
-      canvas.height = imageElement.height;
-
-      // Draw masks on the canvas for annotations with the same image_id
+      console.log('If?');
       const annotationList = annotations.annotations; // Adjust based on your actual key
       const filteredAnnotations = annotationList.filter((annotation) => {
         return annotation.image_id === parseInt(imageId, 10);
       });
 
-      filteredAnnotations.forEach((annotation) => {
-        const rleData = annotation.segmentation;
-        const mask = <RLEtoMask rleData={rleData}/>
-        // drawMask(ctx, maskArray, annotation.color);
-      });
-//modify below
-      // Overlay the canvas on the image
-      const overlayImage = new Image();
-      overlayImage.src = canvas.toDataURL();
-      overlayImage.style.position = 'absolute';
-      overlayImage.style.top = '0';
-      overlayImage.style.left = '0';
-      imageElement.parentNode.appendChild(overlayImage);
+      const canvas = document.createElement('canvas');
+      const ctx = canvas.getContext('2d');
+
+      // Set canvas size to match the image size
+      canvas.width = imageElement.width;
+      canvas.height = imageElement.height;
+
+      // Draw the original image on the canvas
+      const img = new Image();
+      img.src = `http://images.cocodataset.org/val2017/${imageId}.jpg`;
+      img.onload = () => {
+        ctx.drawImage(img, 0, 0);
+
+        // Draw masks on the canvas
+        filteredAnnotations.forEach((annotation) => {
+          const rleData = annotation.segmentation;
+          const imageData = RLEtoMask(rleData);
+          console.log(imageData);
+          ctx.putImageData(imageData, 0, 0);
+        });
+
+        // Replace the original image with the canvas
+        imageElement.src = canvas.toDataURL();
+      };
     }
-  };
-
-
-  const handleButtonClick = () => {
-    renderMasks();
-    setShowImage(true);
   };
 
   return (
     <div>
       <h2>Image Display</h2>
-      <button onClick={handleButtonClick}>Display Image</button>
       {showImage && (
         <img
           id="displayed-image"

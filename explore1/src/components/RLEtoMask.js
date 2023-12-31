@@ -3,17 +3,12 @@ import React, { useState, useEffect } from 'react';
 
 const RLEtoMask = ({rleData}) => {
   const [binaryArray, setBinaryArray] = useState([]);
-  const [image, setImage] = useState(null);
-//   const rleData={
-//     "segmentation": {
-//     "size": [425, 640], 
-//     "counts": [89196, 3, 422, 4, 421, 5, 420, 6, 419, 6, 419, 7, 418, 7, 418, 8, 418, 7, 418, 7, 418, 8, 418, 7, 418, 7, 418, 8, 418, 7, 418, 7, 418, 7, 418, 7, 419, 6, 419, 7, 418, 7, 418, 7, 418, 7, 419, 6, 419, 6, 419, 6, 419, 6, 419, 6, 419, 6, 419, 6, 419, 6, 419, 6, 419, 6, 419, 6, 419, 6, 419, 6, 419, 6, 419, 6, 419, 6, 419, 6, 419, 6, 419, 5, 420, 5, 420, 5, 419, 6, 419, 6, 419, 6, 419, 6, 419, 6, 419, 6, 419, 6, 419, 6, 419, 6, 419, 6, 419, 6, 419, 6, 419, 6, 419, 6, 419, 6, 419, 6, 419, 6, 419, 6, 419, 6, 419, 6, 419, 6, 419, 5, 420, 5, 420, 5, 420, 5, 420, 5, 420, 5, 420, 5, 420, 5, 420, 5, 420, 5, 420, 5, 420, 5, 420, 5, 420, 5, 419, 6, 419, 6, 419, 6, 419, 6, 419, 6, 419, 6, 419, 6, 419, 6, 419, 5, 420, 5, 420, 5, 420, 5, 420, 5, 420, 5, 420, 5, 420, 5, 420, 5, 420, 5, 420, 5, 420, 5, 420, 5, 420, 5, 420, 5, 420, 4, 421, 4, 420, 5, 420, 5, 420, 5, 420, 5, 420, 5, 420, 5, 420, 5, 420, 5, 420, 5, 420, 5, 420, 5, 420, 5, 420, 5, 420, 5, 420, 5, 420, 5, 420, 5, 420, 5, 419, 6, 419, 6, 419, 6, 419, 6, 419, 6, 419, 6, 419, 6, 419, 6, 419, 6, 419, 6, 419, 6, 419, 6, 419, 6, 419, 6, 419, 6, 419, 6, 419, 6, 419, 6, 419, 6, 419, 6, 419, 6, 418, 7, 418, 7, 418, 7, 418, 6, 419, 6, 419, 6, 419, 6, 419, 6, 419, 6, 419, 6, 419, 6, 419, 6, 419, 6, 419, 6, 419, 6, 419, 6, 419, 5, 420, 5, 420, 5, 420, 5, 419, 6, 419, 6, 419, 6, 419, 6, 419, 6, 419, 6, 419, 6, 419, 6, 419, 6, 419, 6, 419, 6, 419, 6, 419, 6, 419, 6, 419, 6, 419, 6, 419, 6, 419, 6, 419, 6, 419, 6, 419, 6, 419, 5, 419, 6, 419, 6, 419, 6, 419, 6, 419, 6, 419, 6, 419, 6, 419, 6, 419, 6, 419, 6, 419, 6, 419, 6, 418, 7, 418, 7, 418, 7, 418, 7, 418, 6, 419, 6, 419, 6, 419, 6, 419, 6, 419, 6, 419, 6, 419, 6, 419, 6, 419, 6, 418, 7, 418, 7, 418, 7, 418, 7, 418, 7, 418, 6, 419, 6, 419, 6, 419, 6, 419, 6, 419, 6, 419, 6, 419, 6, 419, 6, 419, 5, 420, 5, 420, 5, 420, 5, 420, 4, 422, 2, 85055],
-//   }
-//   };
+  const [imageData, setImageData] = useState(null);
+
   useEffect(() => {
-    const imageWidth = rleData.segmentation.size[0];
-    const imageHeight = rleData.segmentation.size[1];
-    const counts = rleData.segmentation.counts;
+    const imageWidth = rleData.size[1];
+    const imageHeight = rleData.size[0];
+    const counts = rleData.counts;
 
     let currentPixel = 0;
     let currentCount = 0;
@@ -30,7 +25,17 @@ const RLEtoMask = ({rleData}) => {
       }
       currentBinaryValue = 1 - currentBinaryValue;
     }
-    setBinaryArray(newBinaryArray);
+    // setBinaryArray(newBinaryArray);
+    const transposedBinaryArray = Array(imageHeight * imageWidth).fill(0);
+
+    for (let i = 0; i < imageWidth; i++) {
+      for (let j = 0; j < imageHeight; j++) {
+        transposedBinaryArray[j * imageWidth + i] = newBinaryArray[i * imageHeight + j];
+      }
+    }
+  
+    setBinaryArray(transposedBinaryArray);
+    console.log("Hello");
  
     const arrayToImageData = (input) => {
       const [r, g, b, a] = [0, 114, 189, 255];
@@ -43,44 +48,20 @@ const RLEtoMask = ({rleData}) => {
           arr[4 * i + 3] = a;
         }
       }
-      return new ImageData(arr, imageWidth, imageHeight);
+      return new ImageData(arr,imageWidth,imageHeight);
     };
 
     // Convert binary array to ImageData
-    const imageData = arrayToImageData(newBinaryArray);
+    const imageData = arrayToImageData(transposedBinaryArray);
+    setImageData(imageData);
 
-    // Function to convert ImageData to Image
-    const imageDataToImage = (imageData) => {
-      const canvas = document.createElement('canvas');
-      const ctx = canvas.getContext('2d');
-      canvas.width = imageData.width;
-      canvas.height = imageData.height;
-      ctx?.putImageData(imageData, 0, 0);
-
-      const img = new Image();
-      img.src = canvas.toDataURL();
-      setImage(img);
-    };
-
-    // Convert ImageData to Image
-    imageDataToImage(imageData);
   }, [rleData]);
 
   return (
-    <div>
-      {image && (
-        <div>
-          <p>Processed Image:</p>
-          <img src={image.src} alt="Processed" width="425px" height="640px" />
-        </div>
-      )}
-    </div>
+    imageData
   );
-};
 
-export default RLEtoMask;
+ };
 
-
-
-
+  export default RLEtoMask;
 
